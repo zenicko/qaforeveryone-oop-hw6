@@ -28,8 +28,33 @@ public class ArraysTest {
             if (arr1[i] % 2 != 0) numOdd++;
             //Math.abs((int) (Math.random() * Integer.MAX_VALUE) * 100);
         }
-        System.out.println(numOdd + "    "+ Arrays.toString(arr1));
-  
+        System.out.println(numOdd + "    " + Arrays.toString(arr1));
+        arrOdd = new int[numOdd];// not 10
+        arrEven = new int[n - numOdd];
+
+        for (int i = 0, j = 0; i < n || j < numOdd; i++) {
+            if (arr1[i] % 2 != 0) {
+                arrOdd[j] = arr1[i];
+                j++;
+            }
+        }
+        System.out.println(numOdd + "    " + Arrays.toString(arrOdd));
+
+        for (int i = 0, j = 0; i < n || j < (n - numOdd); i++) {
+            if (arr1[i] % 2 == 0) {
+                arrEven[j] = arr1[i];
+                j++;
+            }
+        }
+        System.out.println(n - numOdd + "    " + Arrays.toString(arrEven));
+
+        for (int i = n - 1, j = 0; i > -1 || j < (n - numOdd); i--) {
+            if (arr1[i] % 2 == 0) {
+                arrEven[j] = arr1[i];
+                j++;
+            }
+        }
+        System.out.println((n - numOdd) + "    " + Arrays.toString(arrEven));
 
     }
 }
